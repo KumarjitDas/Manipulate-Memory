@@ -3,7 +3,7 @@
 # author: Kumarjit Das (kumarjitdas1999@gmail.com)
 # brief: Creates tests from C source files.
 # version: 0.1.0
-# date: 2021-12-05
+# date: 2021-12-07
 #
 # License(MIT License):
 #
@@ -31,7 +31,7 @@
 write_status("'Tests' subdirectory added.")
 
 # Set the list of test programs
-set(TEST_LIST "")
+set(TEST_LIST "kdi_manipulate_memory_copy;")
 
 # Loop through each item in the tests list
 foreach(TEST_ITEM ${TEST_LIST})
