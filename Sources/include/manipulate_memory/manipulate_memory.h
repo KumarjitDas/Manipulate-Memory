@@ -3,7 +3,7 @@
  * @author Kumarjit Das (kumarjitdas1999@gmail.com)
  * @brief Contains all `Manipulate-Memory` library function declarations.
  * @version 0.1.0
- * @date 2021-12-05
+ * @date 2021-12-07
  *
  * @copyright Copyright (c) 2021
  *
@@ -37,5 +37,78 @@
 #include "manipulate_memory_version.h"
 
 #include <stdint.h>
+
+#if defined(INT64_MAX) && defined(INT64_MIN)
+#ifndef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
+#define KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
+#endif /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT */
+#endif /* defined(INT64_MAX) && defined(INT64_MIN) */
+
+// #undef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
+
+#ifdef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_copy(void *pDestination,
+                           void *pSource,
+                           uint64_t u64Size);
+
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_move(void *pDestination,
+                           void *pSource,
+                           uint64_t u64Size);
+
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_set(void *pMemory,
+                          uint64_t u64Memory_size,
+                          void *pValue,
+                          uint64_t u64Value_size);
+
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_find(void *pMemory,
+                           uint64_t u64Memory_size,
+                           void *pValue,
+                           uint64_t u64Value_size);
+
+uint64_t KDI_MANIPULATE_MEMORY_API
+kdi_manipulate_memory_find_index(void *pMemory,
+                                 uint64_t u64Memory_size,
+                                 void *pValue,
+                                 uint64_t u64Value_size);
+
+uint64_t KDI_MANIPULATE_MEMORY_API
+kdi_manipulate_memory_find_element_index(void *pMemory,
+                                         uint64_t u64Memory_size,
+                                         void *pValue,
+                                         uint64_t u64Value_size);
+
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_replace(void *pMemory,
+                              uint64_t u64Memory_size,
+                              void *pFind_value,
+                              void *pReplace_value,
+                              uint64_t u64Value_size);
+
+int64_t KDI_MANIPULATE_MEMORY_API
+kdi_manipulate_memory_compare(void *p1,
+                              void *p2,
+                              uint64_t u64Size);
+
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_apply(void *pMemory,
+                            uint64_t u64Size,
+                            void (*pfFunction)(void *));
+
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_apply_index(void *pMemory,
+                                  uint64_t u64Size,
+                                  void (*pfFunction)(uint64_t,
+                                                     void *));
+void KDI_MANIPULATE_MEMORY_API *
+kdi_manipulate_memory_apply_element_index(void *pMemory,
+                                          uint64_t u64Size,
+                                          void (*pfFunction)(uint64_t,
+                                                             void *));
+#else  /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT not defined */
+#endif /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT */
 
 #endif /* _KDI_MANIPULATE_MEMORY_H_ */
