@@ -3,7 +3,7 @@
 # author: Kumarjit Das (kumarjitdas1999@gmail.com)
 # brief: Creates example executables from C source files.
 # version: 0.1.0
-# date: 2021-12-05
+# date: 2021-12-07
 #
 # License(MIT License):
 #
@@ -31,7 +31,7 @@
 write_status("'Examples' subdirectory added.")
 
 # Set the list of example programs
-set(EXAMPLE_LIST "")
+set(EXAMPLE_LIST "example-001-copy;")
 
 # Loop through each item in the examples list
 foreach(EXAMPLE_ITEM ${EXAMPLE_LIST})
