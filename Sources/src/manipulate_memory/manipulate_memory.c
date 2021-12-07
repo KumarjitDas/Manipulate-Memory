@@ -1,9 +1,9 @@
 /**
  * @file manipulate_memory.c
  * @author Kumarjit Das (kumarjitdas1999@gmail.com)
- * @brief Definitions of all the library functions.
+ * @brief Contains all the definitions of all the library functions.
  * @version 0.1.0
- * @date 2021-12-05
+ * @date 2021-12-07
  *
  * @copyright Copyright (c) 2021
  *
@@ -31,3 +31,129 @@
  */
 
 #include "manipulate_memory/manipulate_memory.h"
+#include "utility.h"
+#include "alignment.h"
+#include "copy.h"
+
+// #undef _KDI_ARCHITECTURE_64_BIT
+
+#ifdef _KDI_ARCHITECTURE_64_BIT
+void *kdi_manipulate_memory_copy(void *pDestination,
+                                 void *pSource,
+                                 uint64_t u64Size) {
+    if (u64Size < _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN) {
+        return _kdi_memory_copy_bytes(pDestination,
+                                      pSource,
+                                      u64Size);
+    }
+    return _kdi_memory_copy_aligned(pDestination,
+                                    pSource,
+                                    u64Size);
+}
+
+// pdes+num <psrc || psrc+num < pdes
+void *kdi_manipulate_memory_move(void *pDestination,
+                                 void *pSource,
+                                 uint64_t u64Size) {
+    (void)pDestination;
+    (void)pSource;
+    (void)u64Size;
+    return NULL;
+}
+
+void *kdi_manipulate_memory_set(void *pMemory,
+                                uint64_t u64Memory_size,
+                                void *pValue,
+                                uint64_t u64Value_size) {
+    (void)pMemory;
+    (void)u64Memory_size;
+    (void)pValue;
+    (void)u64Value_size;
+    return NULL;
+}
+
+void *kdi_manipulate_memory_find(void *pMemory,
+                                 uint64_t u64Memory_size,
+                                 void *pValue,
+                                 uint64_t u64Value_size) {
+    (void)pMemory;
+    (void)u64Memory_size;
+    (void)pValue;
+    (void)u64Value_size;
+    return NULL;
+}
+
+uint64_t kdi_manipulate_memory_find_index(void *pMemory,
+                                          uint64_t u64Memory_size,
+                                          void *pValue,
+                                          uint64_t u64Value_size) {
+    (void)pMemory;
+    (void)u64Memory_size;
+    (void)pValue;
+    (void)u64Value_size;
+    return 0;
+}
+
+uint64_t kdi_manipulate_memory_find_element_index(void *pMemory,
+                                                  uint64_t u64Memory_size,
+                                                  void *pValue,
+                                                  uint64_t u64Value_size) {
+    (void)pMemory;
+    (void)u64Memory_size;
+    (void)pValue;
+    (void)u64Value_size;
+    return 0;
+}
+
+void *kdi_manipulate_memory_replace(void *pMemory,
+                                    uint64_t u64Memory_size,
+                                    void *pFind_value,
+                                    void *pReplace_value,
+                                    uint64_t u64Value_size) {
+    (void)pMemory;
+    (void)u64Memory_size;
+    (void)pFind_value;
+    (void)pReplace_value;
+    (void)u64Value_size;
+    return NULL;
+}
+
+int64_t kdi_manipulate_memory_compare(void *p1,
+                                      void *p2,
+                                      uint64_t u64Size) {
+    (void)p1;
+    (void)p2;
+    (void)u64Size;
+    return 0;
+}
+
+void *kdi_manipulate_memory_apply(void *pMemory,
+                                  uint64_t u64Size,
+                                  void (*pfFunction)(void *)) {
+    (void)pMemory;
+    (void)u64Size;
+    (void)pfFunction;
+    return NULL;
+}
+
+void *kdi_manipulate_memory_apply_index(void *pMemory,
+                                        uint64_t u64Size,
+                                        void (*pfFunction)(uint64_t,
+                                                           void *)) {
+    (void)pMemory;
+    (void)u64Size;
+    (void)pfFunction;
+    return NULL;
+}
+
+void *kdi_manipulate_memory_apply_element_index(void *pMemory,
+                                                uint64_t u64Size,
+                                                void (*pfFunction)(uint64_t,
+                                                                   void *)) {
+    (void)pMemory;
+    (void)u64Size;
+    (void)pfFunction;
+    return NULL;
+}
+#else  /* _KDI_ARCHITECTURE_64_BIT not defined */
+#endif /* _KDI_ARCHITECTURE_64_BIT */
