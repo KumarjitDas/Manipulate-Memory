@@ -1,12 +1,12 @@
 /**
- * @file alignment.c
- * @author Kumarjit Das (kumarjitdas1999@gmail.com)
- * @brief Contains private memory-alignment function definitions of this
+ * \file alignment.c
+ * \author Kumarjit Das (kumarjitdas1999@gmail.com)
+ * \brief Contains private memory-alignment function definitions of this
  *        library.
- * @version 0.1.0
- * @date 2021-12-07
+ * \version 0.1.0
+ * \date 2021-12-07
  *
- * @copyright Copyright (c) 2021
+ * \copyright Copyright (c) 2021
  *
  * License(MIT License):
  *

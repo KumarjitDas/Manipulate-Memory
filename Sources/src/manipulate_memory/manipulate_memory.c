@@ -1,11 +1,11 @@
 /**
- * @file manipulate_memory.c
- * @author Kumarjit Das (kumarjitdas1999@gmail.com)
- * @brief Contains all the definitions of all the library functions.
- * @version 0.1.0
- * @date 2021-12-07
+ * \file manipulate_memory.c
+ * \author Kumarjit Das (kumarjitdas1999@gmail.com)
+ * \brief Contains all the definitions of all the library functions.
+ * \version 0.1.0
+ * \date 2021-12-07
  *
- * @copyright Copyright (c) 2021
+ * \copyright Copyright (c) 2021
  *
  * License(MIT License):
  *

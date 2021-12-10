@@ -1,12 +1,12 @@
 /**
- * @file copy.h
- * @author Kumarjit Das (kumarjitdas1999@gmail.com)
- * @brief Contains private memory-copying function declarations of this
+ * \file copy.h
+ * \author Kumarjit Das (kumarjitdas1999@gmail.com)
+ * \brief Contains private memory-copying function declarations of this
  *        library.
- * @version 0.1.0
- * @date 2021-12-07
+ * \version 0.1.0
+ * \date 2021-12-07
  *
- * @copyright Copyright (c) 2021
+ * \copyright Copyright (c) 2021
  *
  * License(MIT License):
  *

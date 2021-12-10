@@ -1,11 +1,11 @@
 /**
- * @file manipulate_memory.h
- * @author Kumarjit Das (kumarjitdas1999@gmail.com)
- * @brief Contains all `Manipulate-Memory` library function declarations.
- * @version 0.1.0
- * @date 2021-12-07
+ * \file manipulate_memory.h
+ * \author Kumarjit Das (kumarjitdas1999@gmail.com)
+ * \brief Contains all `Manipulate-Memory` library function declarations.
+ * \version 0.1.0
+ * \date 2021-12-07
  *
- * @copyright Copyright (c) 2021
+ * \copyright Copyright (c) 2021
  *
  * License(MIT License):
  *
@@ -47,6 +47,7 @@
 // #undef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
 
 #ifdef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
+
 void KDI_MANIPULATE_MEMORY_API *
 kdi_manipulate_memory_copy(void *pDestination,
                            void *pSource,
@@ -108,6 +109,7 @@ kdi_manipulate_memory_apply_element_index(void *pMemory,
                                           uint64_t u64Size,
                                           void (*pfFunction)(uint64_t,
                                                              void *));
+
 #else  /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT not defined */
 #endif /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT */
 
