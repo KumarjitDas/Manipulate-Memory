@@ -2,13 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.1/), and this project adheres to
-[Semantic Versioning](https://semver.org/spec/v2.0.1.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
+[Semantic Versioning](https://semver.org/).
 
-## [Unreleased](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.1.0...HEAD)
+## [Unreleased](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.2.0...HEAD)
 
 - *CPack* packaging support
 - *vcpkg* packaging support
+
+## [0.2.0](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.1.0...v0.2.0) - 2021-12-10
+
+### Added
+
+- Doxygen documentation style in all source files
+- `_KDI_MEMORY_WORD_SIZE` private macro
+- `_kdi_get_aligned_address_reverse` private function
+  [declaration/prototype](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/alignment.h)
+  and
+  [definition/implementation](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/alignment.c)
+- `_kdi_memory_copy_bytes_reverse` private function
+  [declaration/prototype](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/alignment.h)
+  and
+  [definition/implementation](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/alignment.c)
+- `_kdi_memory_copy_aligned_reverse` private function
+  [declaration/prototype](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/copy.h)
+  and
+  [definition/implementation](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/copy.c)
+- [Implementation](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/manipulate_memory.c)
+  for `kdi_manipulate_memory_move` function
+- [kdi_manipulate_memory_move.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Tests/kdi_manipulate_memory_move.c)
+  file
+- Tests for `kdi_manipulate_memory_move` function
+- Features in [readme](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/README.md#project-status)
+  '*Project Status*'
+- Documentation for `kdi_manipulate_memory_copy` and `kdi_manipulate_memory_move` functions
+
+### Removed
+
+- Old documentation style in all source files
 
 ## [0.1.0](https://github.com/KumarjitDas/Manipulate-Memory/releases/tag/v0.1.0) - 2021-12-10
 
@@ -58,7 +89,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.1/),
       - [manipulate_memory.h](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Sources/include/manipulate_memory/manipulate_memory.h)
         file
   - [src](https://github.com/KumarjitDas/Manipulate-Memory/tree/v0.1.0/Sources/src) subdirectory
-    - [manipulate_memory](https://github.com/KumarjitDas/Manipulate-Memory/tree/v0.1.0/Sources/src/manipulate_memory) subdirectory
+    - [manipulate_memory](https://github.com/KumarjitDas/Manipulate-Memory/tree/v0.1.0/Sources/src/manipulate_memory)
+      subdirectory
       - [utility.h](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Sources/src/manipulate_memory/utility.h)
         file
       - [manipulate_memory.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Sources/src/manipulate_memory/manipulate_memory.c)
@@ -73,7 +105,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.1/),
         file
 - [Tests](https://github.com/KumarjitDas/Manipulate-Memory/tree/v0.1.0/Tests) directory
   - [CMake](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Tests/CMakeLists.txt) file
-  - [kdi_manipulate_memory_copy](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Tests/kdi_manipulate_memory_copy.c) file
+  - [kdi_manipulate_memory_copy](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Tests/kdi_manipulate_memory_copy.c)
+    file
 - [Examples](https://github.com/KumarjitDas/Manipulate-Memory/tree/v0.1.0/Examples) directory
   - [CMake](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Examples/CMakeLists.txt) file
   - [example-001-copy](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Examples/example-001-copy.c) file

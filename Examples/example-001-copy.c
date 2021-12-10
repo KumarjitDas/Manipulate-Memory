@@ -3,7 +3,7 @@
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief An example for `Manipulate-Memory` library function
  *        `kdi_manipulate_memory_copy`.
- * \version 0.1.0
+ * \version 0.2.0
  * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021

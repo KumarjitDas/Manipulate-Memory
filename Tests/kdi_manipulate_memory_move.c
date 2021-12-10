@@ -2,7 +2,7 @@
  * \file kdi_manipulate_memory_move.c
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief Tests for `kdi_manipulate_memory_move` function.
- * \version 0.1.0
+ * \version 0.2.0
  * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
