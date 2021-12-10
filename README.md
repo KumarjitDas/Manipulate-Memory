@@ -143,7 +143,10 @@ This project is distributed under the **MIT License**. See [LICENSE](LICENSE) fo
 
 ## Project Status
 
-No functionalities/features has been implemented so far.
+These functionalities/features has been implemented so far:
+
+- kdi_manipulate_memory_copy
+- kdi_manipulate_memory_move
 
 ## Acknowledgment
 
