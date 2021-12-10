@@ -83,9 +83,9 @@ kdi_copy_memory(void *pDestination,
  * \since v0.2.0
  */
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_move(void *pDestination,
-                           void *pSource,
-                           uint64_t u64Size);
+kdi_move_memory(void *pDestination,
+                void *pSource,
+                uint64_t u64Size);
 
 void KDI_MANIPULATE_MEMORY_API *
 kdi_manipulate_memory_set(void *pMemory,

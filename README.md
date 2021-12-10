@@ -145,8 +145,8 @@ This project is distributed under the **MIT License**. See [LICENSE](LICENSE) fo
 
 These functionalities/features has been implemented so far:
 
-- kdi_manipulate_memory_copy
-- kdi_manipulate_memory_move
+- `kdi_copy_memory`
+- `kdi_move_memory`
 
 ## Acknowledgment
 

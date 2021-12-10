@@ -52,9 +52,9 @@ void *kdi_copy_memory(void *pDestination,
                                     u64Size);
 }
 
-void *kdi_manipulate_memory_move(void *pDestination,
-                                 void *pSource,
-                                 uint64_t u64Size) {
+void *kdi_move_memory(void *pDestination,
+                      void *pSource,
+                      uint64_t u64Size) {
     void *pSource_end = (uint8_t *)pSource + u64Size;
     if ((pDestination > pSource) &&
         (pDestination < pSource_end)) {

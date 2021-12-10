@@ -32,7 +32,7 @@ write_status("'Tests' subdirectory added.")
 
 # Set the list of test programs
 set(TEST_LIST "kdi_copy_memory"
-              "kdi_manipulate_memory_move")
+              "kdi_move_memory")
 
 # Loop through each item in the tests list
 foreach(TEST_ITEM ${TEST_LIST})
