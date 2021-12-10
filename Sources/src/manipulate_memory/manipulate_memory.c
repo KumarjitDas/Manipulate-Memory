@@ -3,7 +3,7 @@
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief Contains all the definitions of all the library functions.
  * \version 0.1.0
- * \date 2021-12-07
+ * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
  *
@@ -51,14 +51,24 @@ void *kdi_manipulate_memory_copy(void *pDestination,
                                     u64Size);
 }
 
-// pdes+num <psrc || psrc+num < pdes
 void *kdi_manipulate_memory_move(void *pDestination,
                                  void *pSource,
                                  uint64_t u64Size) {
-    (void)pDestination;
-    (void)pSource;
-    (void)u64Size;
-    return NULL;
+    void *pSource_end = (uint8_t *)pSource + u64Size;
+    if ((pDestination > pSource) &&
+        (pDestination < pSource_end)) {
+        if (u64Size < _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN) {
+            return _kdi_memory_copy_bytes_reverse(pDestination,
+                                                  pSource,
+                                                  u64Size);
+        }
+        return _kdi_memory_copy_aligned_reverse(pDestination,
+                                                pSource,
+                                                u64Size);
+    }
+    return kdi_manipulate_memory_copy(pDestination,
+                                      pSource,
+                                      u64Size);
 }
 
 void *kdi_manipulate_memory_set(void *pMemory,
