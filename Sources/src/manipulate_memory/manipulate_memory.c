@@ -43,13 +43,13 @@ void *kdi_copy_memory(void *pDestination,
                       void *pSource,
                       uint64_t u64Size) {
     if (u64Size < _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN) {
-        return _kdi_memory_copy_bytes(pDestination,
-                                      pSource,
-                                      u64Size);
+        return _kdi_copy_bytes_from_memory(pDestination,
+                                           pSource,
+                                           u64Size);
     }
-    return _kdi_memory_copy_aligned(pDestination,
-                                    pSource,
-                                    u64Size);
+    return _kdi_copy_words_from_memory(pDestination,
+                                       pSource,
+                                       u64Size);
 }
 
 void *kdi_move_memory(void *pDestination,
@@ -59,23 +59,34 @@ void *kdi_move_memory(void *pDestination,
     if ((pDestination > pSource) &&
         (pDestination < pSource_end)) {
         if (u64Size < _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN) {
-            return _kdi_memory_copy_bytes_reverse(pDestination,
-                                                  pSource,
-                                                  u64Size);
+            return _kdi_copy_bytes_from_memory_reverse(pDestination,
+                                                       pSource,
+                                                       u64Size);
         }
-        return _kdi_memory_copy_aligned_reverse(pDestination,
-                                                pSource,
-                                                u64Size);
+        return _kdi_copy_words_from_memory_reverse(pDestination,
+                                                   pSource,
+                                                   u64Size);
     }
     return kdi_copy_memory(pDestination,
                            pSource,
                            u64Size);
 }
 
-void *kdi_manipulate_memory_set(void *pMemory,
-                                uint64_t u64Memory_size,
-                                void *pValue,
-                                uint64_t u64Value_size) {
+void *kdi_set_memory(void *pMemory,
+                     uint64_t u64Memory_size,
+                     void *pValue,
+                     uint64_t u64Value_size) {
+    (void)pMemory;
+    (void)u64Memory_size;
+    (void)pValue;
+    (void)u64Value_size;
+    return pMemory;
+}
+
+void *kdi_find_in_memory(void *pMemory,
+                         uint64_t u64Memory_size,
+                         void *pValue,
+                         uint64_t u64Value_size) {
     (void)pMemory;
     (void)u64Memory_size;
     (void)pValue;
@@ -83,18 +94,18 @@ void *kdi_manipulate_memory_set(void *pMemory,
     return NULL;
 }
 
-void *kdi_manipulate_memory_find(void *pMemory,
-                                 uint64_t u64Memory_size,
-                                 void *pValue,
-                                 uint64_t u64Value_size) {
+uint64_t kdi_find_in_memory_index(void *pMemory,
+                                  uint64_t u64Memory_size,
+                                  void *pValue,
+                                  uint64_t u64Value_size) {
     (void)pMemory;
     (void)u64Memory_size;
     (void)pValue;
     (void)u64Value_size;
-    return NULL;
+    return 0;
 }
 
-uint64_t kdi_manipulate_memory_find_index(void *pMemory,
+uint64_t kdi_find_in_memory_element_index(void *pMemory,
                                           uint64_t u64Memory_size,
                                           void *pValue,
                                           uint64_t u64Value_size) {
@@ -105,22 +116,11 @@ uint64_t kdi_manipulate_memory_find_index(void *pMemory,
     return 0;
 }
 
-uint64_t kdi_manipulate_memory_find_element_index(void *pMemory,
-                                                  uint64_t u64Memory_size,
-                                                  void *pValue,
-                                                  uint64_t u64Value_size) {
-    (void)pMemory;
-    (void)u64Memory_size;
-    (void)pValue;
-    (void)u64Value_size;
-    return 0;
-}
-
-void *kdi_manipulate_memory_replace(void *pMemory,
-                                    uint64_t u64Memory_size,
-                                    void *pFind_value,
-                                    void *pReplace_value,
-                                    uint64_t u64Value_size) {
+void *kdi_replace_in_memory(void *pMemory,
+                            uint64_t u64Memory_size,
+                            void *pFind_value,
+                            void *pReplace_value,
+                            uint64_t u64Value_size) {
     (void)pMemory;
     (void)u64Memory_size;
     (void)pFind_value;
@@ -129,38 +129,38 @@ void *kdi_manipulate_memory_replace(void *pMemory,
     return NULL;
 }
 
-int64_t kdi_manipulate_memory_compare(void *p1,
-                                      void *p2,
-                                      uint64_t u64Size) {
+int64_t kdi_compare_memory(void *p1,
+                           void *p2,
+                           uint64_t u64Size) {
     (void)p1;
     (void)p2;
     (void)u64Size;
     return 0;
 }
 
-void *kdi_manipulate_memory_apply(void *pMemory,
-                                  uint64_t u64Size,
-                                  void (*pfFunction)(void *)) {
+void *kdi_apply_function_in_memory(void *pMemory,
+                                   uint64_t u64Size,
+                                   void (*pfFunction)(void *)) {
     (void)pMemory;
     (void)u64Size;
     (void)pfFunction;
     return NULL;
 }
 
-void *kdi_manipulate_memory_apply_index(void *pMemory,
-                                        uint64_t u64Size,
-                                        void (*pfFunction)(uint64_t,
-                                                           void *)) {
+void *kdi_apply_index_function_in_memory(void *pMemory,
+                                         uint64_t u64Size,
+                                         void (*pfFunction)(uint64_t,
+                                                            void *)) {
     (void)pMemory;
     (void)u64Size;
     (void)pfFunction;
     return NULL;
 }
 
-void *kdi_manipulate_memory_apply_element_index(void *pMemory,
-                                                uint64_t u64Size,
-                                                void (*pfFunction)(uint64_t,
-                                                                   void *)) {
+void *kdi_apply_element_index_function_in_memory(void *pMemory,
+                                                 uint64_t u64Size,
+                                                 void (*pfFunction)(uint64_t,
+                                                                    void *)) {
     (void)pMemory;
     (void)u64Size;
     (void)pfFunction;

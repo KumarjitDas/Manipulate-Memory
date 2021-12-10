@@ -36,8 +36,8 @@
 
 #include "utility.h"
 
-void *_kdi_get_aligned_address(void *pMemory);
+void *_kdi_get_aligned_memory(void *pMemory);
 
-void *_kdi_get_aligned_address_reverse(void *pMemory);
+void *_kdi_get_aligned_memory_reverse(void *pMemory);
 
 #endif /* _KDI_MANIPULATE_MEMORY_ALIGNMENT_H_ */

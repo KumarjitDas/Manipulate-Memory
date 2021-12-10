@@ -40,21 +40,21 @@
 
 #ifdef _KDI_ARCHITECTURE_64_BIT
 
-void *_kdi_memory_copy_bytes(void *pDestination,
-                             void *pSource,
-                             uint64_t u64Size);
+void *_kdi_copy_bytes_from_memory(void *pDestination,
+                                  void *pSource,
+                                  uint64_t u64Size);
 
-void *_kdi_memory_copy_bytes_reverse(void *pDestination,
-                                     void *pSource,
-                                     uint64_t u64Size);
+void *_kdi_copy_bytes_from_memory_reverse(void *pDestination,
+                                          void *pSource,
+                                          uint64_t u64Size);
 
-void *_kdi_memory_copy_aligned(void *pDestination,
-                               void *pSource,
-                               uint64_t u64Size);
+void *_kdi_copy_words_from_memory(void *pDestination,
+                                  void *pSource,
+                                  uint64_t u64Size);
 
-void *_kdi_memory_copy_aligned_reverse(void *pDestination,
-                                       void *pSource,
-                                       uint64_t u64Size);
+void *_kdi_copy_words_from_memory_reverse(void *pDestination,
+                                          void *pSource,
+                                          uint64_t u64Size);
 
 #else  /* _KDI_ARCHITECTURE_64_BIT not defined */
 #endif /* _KDI_ARCHITECTURE_64_BIT */

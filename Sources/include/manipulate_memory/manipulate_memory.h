@@ -87,57 +87,70 @@ kdi_move_memory(void *pDestination,
                 void *pSource,
                 uint64_t u64Size);
 
+/**
+ * \brief Copy the source to the destination and return the destination.
+ *
+ * \param pMemory        destination memory location
+ * \param u64Memory_size destination memory size
+ * \param pValue         source memory location
+ * \param u64Value_size  source memory size
+ *
+ * \return destination memory location
+ *
+ * \warning `pMemory` and `pValue` should be non-null pointers
+ * \warning `u64Memory_size` and `u64Value_size` should be a non-zero value
+ */
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_set(void *pMemory,
-                          uint64_t u64Memory_size,
-                          void *pValue,
-                          uint64_t u64Value_size);
+kdi_set_memory(void *pMemory,
+               uint64_t u64Memory_size,
+               void *pValue,
+               uint64_t u64Value_size);
 
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_find(void *pMemory,
-                           uint64_t u64Memory_size,
-                           void *pValue,
-                           uint64_t u64Value_size);
+kdi_find_in_memory(void *pMemory,
+                   uint64_t u64Memory_size,
+                   void *pValue,
+                   uint64_t u64Value_size);
 
 uint64_t KDI_MANIPULATE_MEMORY_API
-kdi_manipulate_memory_find_index(void *pMemory,
+kdi_find_index_in_memory(void *pMemory,
+                         uint64_t u64Memory_size,
+                         void *pValue,
+                         uint64_t u64Value_size);
+
+uint64_t KDI_MANIPULATE_MEMORY_API
+kdi_find_element_index_in_memory(void *pMemory,
                                  uint64_t u64Memory_size,
                                  void *pValue,
                                  uint64_t u64Value_size);
 
-uint64_t KDI_MANIPULATE_MEMORY_API
-kdi_manipulate_memory_find_element_index(void *pMemory,
-                                         uint64_t u64Memory_size,
-                                         void *pValue,
-                                         uint64_t u64Value_size);
-
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_replace(void *pMemory,
-                              uint64_t u64Memory_size,
-                              void *pFind_value,
-                              void *pReplace_value,
-                              uint64_t u64Value_size);
+kdi_replace_in_memory(void *pMemory,
+                      uint64_t u64Memory_size,
+                      void *pFind_value,
+                      void *pReplace_value,
+                      uint64_t u64Value_size);
 
 int64_t KDI_MANIPULATE_MEMORY_API
-kdi_manipulate_memory_compare(void *p1,
-                              void *p2,
-                              uint64_t u64Size);
+kdi_compare_memory(void *p1,
+                   void *p2,
+                   uint64_t u64Size);
 
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_apply(void *pMemory,
-                            uint64_t u64Size,
-                            void (*pfFunction)(void *));
+kdi_apply_function_in_memory(void *pMemory,
+                             uint64_t u64Size,
+                             void (*pfFunction)(void *));
 
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_apply_index(void *pMemory,
-                                  uint64_t u64Size,
-                                  void (*pfFunction)(uint64_t,
-                                                     void *));
+kdi_apply_index_function_in_memory(void *pMemory,
+                                   uint64_t u64Size,
+                                   void (*pfFunction)(uint64_t,
+                                                      void *));
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_apply_element_index(void *pMemory,
-                                          uint64_t u64Size,
-                                          void (*pfFunction)(uint64_t,
-                                                             void *));
+kdi_apply_element_index_function_in_memory(void *pMemory,
+                                           uint64_t u64Size,
+                                           void (*pfFunction)(uint64_t,
+                                                              void *));
 
 #else  /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT not defined */
 #endif /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT */

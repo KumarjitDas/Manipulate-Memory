@@ -38,7 +38,7 @@
 
 #ifdef _KDI_ARCHITECTURE_64_BIT
 
-void *_kdi_get_aligned_address(void *pMemory) {
+void *_kdi_get_aligned_memory(void *pMemory) {
     uint64_t u64Alignment_size = _KDI_MEMORY_WORD_SIZE - 1;
     uint8_t *pOffset_memory = (uint8_t *)pMemory + u64Alignment_size;
     void *pAligned_memory = (void *)((uint64_t)pOffset_memory &
@@ -46,8 +46,8 @@ void *_kdi_get_aligned_address(void *pMemory) {
     return pAligned_memory;
 }
 
-void *_kdi_get_aligned_address_reverse(void *pMemory) {
-    uint8_t *pAligned_memory = _kdi_get_aligned_address(pMemory);
+void *_kdi_get_aligned_memory_reverse(void *pMemory) {
+    uint8_t *pAligned_memory = _kdi_get_aligned_memory(pMemory);
     if (pAligned_memory != pMemory) {
         return pAligned_memory - _KDI_MEMORY_WORD_SIZE;
     }

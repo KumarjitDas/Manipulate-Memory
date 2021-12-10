@@ -39,9 +39,9 @@
 
 #ifdef _KDI_ARCHITECTURE_64_BIT
 
-void *_kdi_memory_copy_bytes(void *pDestination,
-                             void *pSource,
-                             uint64_t u64Size) {
+void *_kdi_copy_bytes_from_memory(void *pDestination,
+                                  void *pSource,
+                                  uint64_t u64Size) {
     uint8_t *p8Destination = pDestination;
     uint8_t *p8Source = pSource;
     uint8_t *p8Destination_end = p8Destination + u64Size;
@@ -53,9 +53,9 @@ void *_kdi_memory_copy_bytes(void *pDestination,
     return pDestination;
 }
 
-void *_kdi_memory_copy_bytes_reverse(void *pDestination,
-                                     void *pSource,
-                                     uint64_t u64Size) {
+void *_kdi_copy_bytes_from_memory_reverse(void *pDestination,
+                                          void *pSource,
+                                          uint64_t u64Size) {
     uint8_t *p8Destination_start = pDestination;
     uint8_t *p8Destination_end = (uint8_t *)pDestination + u64Size;
     uint8_t *p8Source_end = (uint8_t *)pSource + u64Size;
@@ -67,12 +67,12 @@ void *_kdi_memory_copy_bytes_reverse(void *pDestination,
     return pDestination;
 }
 
-void *_kdi_memory_copy_aligned(void *pDestination,
-                               void *pSource,
-                               uint64_t u64Size) {
+void *_kdi_copy_words_from_memory(void *pDestination,
+                                  void *pSource,
+                                  uint64_t u64Size) {
     uint8_t *p8Destination = pDestination;
     uint8_t *p8Source = pSource;
-    uint8_t *p8Destination_end = _kdi_get_aligned_address(pDestination);
+    uint8_t *p8Destination_end = _kdi_get_aligned_memory(pDestination);
     while (p8Destination < p8Destination_end) {
         *p8Destination = *p8Source;
         ++p8Destination;
@@ -82,7 +82,7 @@ void *_kdi_memory_copy_aligned(void *pDestination,
     uint64_t *p64Source = (void *)p8Source;
     uint64_t *p64Actual_destination_end = (void *)((uint8_t *)pDestination +
                                                    u64Size);
-    uint64_t *p64Destination_end = _kdi_get_aligned_address_reverse(
+    uint64_t *p64Destination_end = _kdi_get_aligned_memory_reverse(
         p64Actual_destination_end);
     while (p64Destination < p64Destination_end) {
         *p64Destination = *p64Source;
@@ -100,19 +100,19 @@ void *_kdi_memory_copy_aligned(void *pDestination,
     return pDestination;
 }
 
-void *_kdi_memory_copy_aligned_reverse(void *pDestination,
-                                       void *pSource,
-                                       uint64_t u64Size) {
+void *_kdi_copy_words_from_memory_reverse(void *pDestination,
+                                          void *pSource,
+                                          uint64_t u64Size) {
     uint8_t *p8Destination_end = (uint8_t *)pDestination + u64Size;
     uint8_t *p8Source_end = (uint8_t *)pSource + u64Size;
-    uint8_t *p8Destination_start = _kdi_get_aligned_address_reverse(
+    uint8_t *p8Destination_start = _kdi_get_aligned_memory_reverse(
         p8Destination_end);
     while (p8Destination_end > p8Destination_start) {
         --p8Destination_end;
         --p8Source_end;
         *p8Destination_end = *p8Source_end;
     }
-    uint64_t *p64Destination_start = _kdi_get_aligned_address(pDestination);
+    uint64_t *p64Destination_start = _kdi_get_aligned_memory(pDestination);
     uint64_t *p64Destination_end = (void *)p8Destination_end;
     uint64_t *p64Source_end = (void *)p8Source_end;
     while (p64Destination_end > p64Destination_start) {
