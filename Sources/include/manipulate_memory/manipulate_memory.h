@@ -3,7 +3,7 @@
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief Contains all `Manipulate-Memory` library function declarations.
  * \version 0.1.0
- * \date 2021-12-07
+ * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
  *
@@ -48,11 +48,40 @@
 
 #ifdef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
 
+/**
+ * \brief Copy the source to the destination and return the destination.
+ *
+ * \param pDestination destination memory location
+ * \param pSource      source memory location
+ * \param u64Size      copying size
+ *
+ * \return destination memory location
+ *
+ * \warning `pDestination` and `pSource` should be non-null pointers
+ * \warning `u64Size` should be a non-zero value
+ *
+ * \since v0.1.0
+ */
 void KDI_MANIPULATE_MEMORY_API *
 kdi_manipulate_memory_copy(void *pDestination,
                            void *pSource,
                            uint64_t u64Size);
 
+/**
+ * \brief Copy the source to the destination while avoiding any overlap and
+ *        return the destination.
+ *
+ * \param pDestination destination memory location
+ * \param pSource      source memory location
+ * \param u64Size      copying size
+ *
+ * \return destination memory location
+ *
+ * \warning `pDestination` and `pSource` should be non-null pointers
+ * \warning `u64Size` should be a non-zero value
+ *
+ * \since v0.2.0
+ */
 void KDI_MANIPULATE_MEMORY_API *
 kdi_manipulate_memory_move(void *pDestination,
                            void *pSource,
