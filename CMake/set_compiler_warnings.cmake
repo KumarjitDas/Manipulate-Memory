@@ -2,7 +2,7 @@
 # file: set_compiler_warnings.cmake
 # author: Kumarjit Das (kumarjitdas1999@gmail.com)
 # brief: Set the C compiler warnings.
-# version: 0.2.0
+# version: 0.3.0
 # date: 2021-12-10
 #
 # License(MIT License):

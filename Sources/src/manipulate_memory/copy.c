@@ -3,7 +3,7 @@
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief Contains private memory-copying function definitions of this
  *        library.
- * \version 0.2.0
+ * \version 0.3.0
  * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
@@ -38,6 +38,7 @@
 // #undef _KDI_ARCHITECTURE_64_BIT
 
 #ifdef _KDI_ARCHITECTURE_64_BIT
+
 void *_kdi_memory_copy_bytes(void *pDestination,
                              void *pSource,
                              uint64_t u64Size) {
@@ -129,5 +130,6 @@ void *_kdi_memory_copy_aligned_reverse(void *pDestination,
     }
     return pDestination;
 }
+
 #else  /* _KDI_ARCHITECTURE_64_BIT not defined */
 #endif /* _KDI_ARCHITECTURE_64_BIT */

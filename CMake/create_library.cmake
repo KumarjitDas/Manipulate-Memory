@@ -2,7 +2,7 @@
 # file: create_library.cmake
 # author: Kumarjit Das (kumarjitdas1999@gmail.com)
 # brief: Creates the library.
-# version: 0.2.0
+# version: 0.3.0
 # date: 2021-12-10
 #
 # License(MIT License):

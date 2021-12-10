@@ -3,7 +3,7 @@
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief Contains private memory-alignment function definitions of this
  *        library.
- * \version 0.2.0
+ * \version 0.3.0
  * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
@@ -37,6 +37,7 @@
 // #undef _KDI_ARCHITECTURE_64_BIT
 
 #ifdef _KDI_ARCHITECTURE_64_BIT
+
 void *_kdi_get_aligned_address(void *pMemory) {
     uint64_t u64Alignment_size = _KDI_MEMORY_WORD_SIZE - 1;
     uint8_t *pOffset_memory = (uint8_t *)pMemory + u64Alignment_size;
@@ -52,5 +53,6 @@ void *_kdi_get_aligned_address_reverse(void *pMemory) {
     }
     return pMemory;
 }
+
 #else  /* _KDI_ARCHITECTURE_64_BIT not defined */
 #endif /* _KDI_ARCHITECTURE_64_BIT */

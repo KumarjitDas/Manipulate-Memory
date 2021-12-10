@@ -5,10 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.2.0...HEAD)
+## [Unreleased](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.3.0...HEAD)
 
 - *CPack* packaging support
 - *vcpkg* packaging support
+
+## [0.3.0](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.2.0...v0.3.0) - 2021-12-10
+
+### Changed
+
+- Function name `kdi_manipulate_memory_copy` to much simpler `kdi_copy_memory`
+- Function name `kdi_manipulate_memory_move` to much simpler `kdi_move_memory`
+- Test source file name
+  [kdi_manipulate_memory_copy.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Tests/kdi_manipulate_memory_copy.c)
+  to [kdi_copy_memory.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.3.0/Tests/kdi_copy_memory.c)
+- Test source file name
+  [kdi_manipulate_memory_move.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Tests/kdi_manipulate_memory_move.c)
+  to [kdi_move_memory.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.3.0/Tests/kdi_move_memory.c)
 
 ## [0.2.0](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.1.0...v0.2.0) - 2021-12-10
 
@@ -105,11 +118,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
         file
 - [Tests](https://github.com/KumarjitDas/Manipulate-Memory/tree/v0.1.0/Tests) directory
   - [CMake](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Tests/CMakeLists.txt) file
-  - [kdi_manipulate_memory_copy](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Tests/kdi_manipulate_memory_copy.c)
+  - [kdi_manipulate_memory_copy.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Tests/kdi_manipulate_memory_copy.c)
     file
 - [Examples](https://github.com/KumarjitDas/Manipulate-Memory/tree/v0.1.0/Examples) directory
   - [CMake](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Examples/CMakeLists.txt) file
-  - [example-001-copy](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Examples/example-001-copy.c) file
+  - [example-001-copy.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.1.0/Examples/example-001-copy.c) file
 - `KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT` public macro definition
 - `_KDI_ARCHITECTURE_64_BIT` private macro definition
 - `_KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN` private macro definition

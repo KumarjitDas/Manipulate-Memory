@@ -2,7 +2,7 @@
 # file: set_c_standard.cmake
 # author: Kumarjit Das (kumarjitdas1999@gmail.com)
 # brief: Set the C programming language standard of this project.
-# version: 0.2.0
+# version: 0.3.0
 # date: 2021-12-10
 #
 # License(MIT License):

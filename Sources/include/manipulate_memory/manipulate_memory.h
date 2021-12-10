@@ -2,7 +2,7 @@
  * \file manipulate_memory.h
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief Contains all `Manipulate-Memory` library function declarations.
- * \version 0.2.0
+ * \version 0.3.0
  * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
@@ -60,7 +60,7 @@
  * \warning `pDestination` and `pSource` should be non-null pointers
  * \warning `u64Size` should be a non-zero value
  *
- * \since v0.2.0
+ * \since v0.3.0
  */
 void KDI_MANIPULATE_MEMORY_API *
 kdi_copy_memory(void *pDestination,
@@ -80,7 +80,7 @@ kdi_copy_memory(void *pDestination,
  * \warning `pDestination` and `pSource` should be non-null pointers
  * \warning `u64Size` should be a non-zero value
  *
- * \since v0.2.0
+ * \since v0.3.0
  */
 void KDI_MANIPULATE_MEMORY_API *
 kdi_move_memory(void *pDestination,

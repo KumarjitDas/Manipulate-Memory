@@ -3,7 +3,7 @@
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief Contains all the private utility function declarations of this
  *        library.
- * \version 0.2.0
+ * \version 0.3.0
  * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
