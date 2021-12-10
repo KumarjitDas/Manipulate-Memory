@@ -4,7 +4,7 @@
  * \brief Contains private memory-copying function definitions of this
  *        library.
  * \version 0.1.0
- * \date 2021-12-07
+ * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
  *
@@ -52,6 +52,20 @@ void *_kdi_memory_copy_bytes(void *pDestination,
     return pDestination;
 }
 
+void *_kdi_memory_copy_bytes_reverse(void *pDestination,
+                                     void *pSource,
+                                     uint64_t u64Size) {
+    uint8_t *p8Destination_start = pDestination;
+    uint8_t *p8Destination_end = (uint8_t *)pDestination + u64Size;
+    uint8_t *p8Source_end = (uint8_t *)pSource + u64Size;
+    while (p8Destination_end > p8Destination_start) {
+        --p8Destination_end;
+        --p8Source_end;
+        *p8Destination_end = *p8Source_end;
+    }
+    return pDestination;
+}
+
 void *_kdi_memory_copy_aligned(void *pDestination,
                                void *pSource,
                                uint64_t u64Size) {
@@ -67,11 +81,8 @@ void *_kdi_memory_copy_aligned(void *pDestination,
     uint64_t *p64Source = (void *)p8Source;
     uint64_t *p64Actual_destination_end = (void *)((uint8_t *)pDestination +
                                                    u64Size);
-    uint64_t *p64Destination_end = _kdi_get_aligned_address(
+    uint64_t *p64Destination_end = _kdi_get_aligned_address_reverse(
         p64Actual_destination_end);
-    if (p64Destination_end > p64Actual_destination_end) {
-        p64Destination_end -= 1;  // here, 1 is equivalent to one element size
-    }
     while (p64Destination < p64Destination_end) {
         *p64Destination = *p64Source;
         ++p64Destination;
@@ -84,6 +95,37 @@ void *_kdi_memory_copy_aligned(void *pDestination,
         *p8Destination = *p8Source;
         ++p8Destination;
         ++p8Source;
+    }
+    return pDestination;
+}
+
+void *_kdi_memory_copy_aligned_reverse(void *pDestination,
+                                       void *pSource,
+                                       uint64_t u64Size) {
+    uint8_t *p8Destination_end = (uint8_t *)pDestination + u64Size;
+    uint8_t *p8Source_end = (uint8_t *)pSource + u64Size;
+    uint8_t *p8Destination_start = _kdi_get_aligned_address_reverse(
+        p8Destination_end);
+    while (p8Destination_end > p8Destination_start) {
+        --p8Destination_end;
+        --p8Source_end;
+        *p8Destination_end = *p8Source_end;
+    }
+    uint64_t *p64Destination_start = _kdi_get_aligned_address(pDestination);
+    uint64_t *p64Destination_end = (void *)p8Destination_end;
+    uint64_t *p64Source_end = (void *)p8Source_end;
+    while (p64Destination_end > p64Destination_start) {
+        --p64Destination_end;
+        --p64Source_end;
+        *p64Destination_end = *p64Source_end;
+    }
+    p8Destination_start = pDestination;
+    p8Destination_end = (void *)p64Destination_end;
+    p8Source_end = (void *)p64Source_end;
+    while (p8Destination_end > p8Destination_start) {
+        --p8Destination_end;
+        --p8Source_end;
+        *p8Destination_end = *p8Source_end;
     }
     return pDestination;
 }
