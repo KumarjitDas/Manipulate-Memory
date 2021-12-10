@@ -4,7 +4,7 @@
  * \brief Contains all the private utility function declarations of this
  *        library.
  * \version 0.1.0
- * \date 2021-12-07
+ * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
  *
@@ -37,13 +37,15 @@
 #include <stdint.h>
 
 #if defined(INT64_MAX) && defined(INT64_MIN)
-#ifndef _KDI_ARCHITECTURE_64_BIT
 #define _KDI_ARCHITECTURE_64_BIT
-#endif /* _KDI_ARCHITECTURE_64_BIT */
 #endif /* defined(INT64_MAX) && defined(INT64_MIN) */
 
-#ifndef _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN
+#ifdef _KDI_ARCHITECTURE_64_BIT
+#define _KDI_MEMORY_WORD_SIZE sizeof(int64_t)
+#else /* _KDI_ARCHITECTURE_64_BIT not defined */
+#define _KDI_MEMORY_WORD_SIZE sizeof(int32_t)
+#endif /* _KDI_ARCHITECTURE_64_BIT */
+
 #define _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN 16
-#endif /* _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN */
 
 #endif /* _KDI_MANIPULATE_MEMORY_UTILITY_H_ */
