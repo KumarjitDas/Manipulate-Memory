@@ -60,12 +60,12 @@
  * \warning `pDestination` and `pSource` should be non-null pointers
  * \warning `u64Size` should be a non-zero value
  *
- * \since v0.1.0
+ * \since v0.2.0
  */
 void KDI_MANIPULATE_MEMORY_API *
-kdi_manipulate_memory_copy(void *pDestination,
-                           void *pSource,
-                           uint64_t u64Size);
+kdi_copy_memory(void *pDestination,
+                void *pSource,
+                uint64_t u64Size);
 
 /**
  * \brief Copy the source to the destination while avoiding any overlap and

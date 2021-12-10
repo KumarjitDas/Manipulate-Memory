@@ -2,7 +2,7 @@
  * \file example-001-copy.c
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief An example for `Manipulate-Memory` library function
- *        `kdi_manipulate_memory_copy`.
+ *        `kdi_copy_memory`.
  * \version 0.2.0
  * \date 2021-12-10
  *
@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
     print_array("Array", p32Array, u64Array_length);
     print_array("Copy", p32Copy, u64Array_length);
 
-    (void)kdi_manipulate_memory_copy(
+    (void)kdi_copy_memory(
         p32Copy,                             // *pDestination
         p32Array,                            // *pSource
         u64Copy_length * sizeof(uint32_t));  //  u64Size

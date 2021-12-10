@@ -1,7 +1,7 @@
 /**
- * \file kdi_manipulate_memory_copy.c
+ * \file kdi_copy_memory.c
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
- * \brief Tests for `kdi_manipulate_memory_copy` function.
+ * \brief Tests for `kdi_copy_memory` function.
  * \version 0.2.0
  * \date 2021-12-10
  *
@@ -43,6 +43,7 @@
 typedef int16_t mytype_t;
 
 #ifdef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
+
 void reset_array(mytype_t *mtArray, uint64_t u64Length) {
     mytype_t *mtArray_end = mtArray + u64Length;
     while (mtArray < mtArray_end) {
@@ -76,7 +77,7 @@ int main() {
     u64Current_length = 3;
     u64Match_count = 0;
     reset_array(pmtArray1, ARRAY_LENGTH);
-    pmtReturned_pointer = kdi_manipulate_memory_copy(
+    pmtReturned_pointer = kdi_copy_memory(
         pmtArray1,                              // *pDestination
         pmtArray2,                              // *pSource
         u64Current_length * sizeof(mytype_t));  //  u64Size
@@ -92,7 +93,7 @@ int main() {
     u64Current_length = 8;
     u64Match_count = 0;
     reset_array(pmtArray1, ARRAY_LENGTH);
-    pmtReturned_pointer = kdi_manipulate_memory_copy(
+    pmtReturned_pointer = kdi_copy_memory(
         pmtArray1,                              // *pDestination
         pmtArray2,                              // *pSource
         u64Current_length * sizeof(mytype_t));  //  u64Size
@@ -108,7 +109,7 @@ int main() {
     u64Current_length = 17;
     u64Match_count = 0;
     reset_array(pmtArray1, ARRAY_LENGTH);
-    pmtReturned_pointer = kdi_manipulate_memory_copy(
+    pmtReturned_pointer = kdi_copy_memory(
         pmtArray1,                              // *pDestination
         pmtArray2,                              // *pSource
         u64Current_length * sizeof(mytype_t));  //  u64Size
@@ -124,7 +125,7 @@ int main() {
     u64Current_length = 128;
     u64Match_count = 0;
     reset_array(pmtArray1, ARRAY_LENGTH);
-    pmtReturned_pointer = kdi_manipulate_memory_copy(
+    pmtReturned_pointer = kdi_copy_memory(
         pmtArray1,                              // *pDestination
         pmtArray2,                              // *pSource
         u64Current_length * sizeof(mytype_t));  //  u64Size
@@ -140,7 +141,7 @@ int main() {
     u64Current_length = 128;
     u64Match_count = 0;
     reset_array(pmtArray1, ARRAY_LENGTH);
-    pmtReturned_pointer = kdi_manipulate_memory_copy(
+    pmtReturned_pointer = kdi_copy_memory(
         (pmtArray1 + 69),                       // *pDestination
         pmtArray2,                              // *pSource
         u64Current_length * sizeof(mytype_t));  //  u64Size
@@ -156,7 +157,7 @@ int main() {
     u64Current_length = ARRAY_LENGTH;
     u64Match_count = 0;
     reset_array(pmtArray1, ARRAY_LENGTH);
-    pmtReturned_pointer = kdi_manipulate_memory_copy(
+    pmtReturned_pointer = kdi_copy_memory(
         pmtArray1,                              // *pDestination
         pmtArray2,                              // *pSource
         u64Current_length * sizeof(mytype_t));  //  u64Size
@@ -172,5 +173,6 @@ int main() {
     free(pmtArray2);
     return EXIT_SUCCESS;
 }
+
 #else  /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT not defined */
 #endif /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT */

@@ -285,9 +285,9 @@ int main() {
     pmtArray1 = pmtArray + u64Current_length - 1;
     pmtArray2 = pmtArray;
     u64Size = u64Current_length * sizeof(mytype_t);
-    (void)kdi_manipulate_memory_copy(pmtHold,    // *pDestination
-                                     pmtArray2,  // *pSource
-                                     u64Size);   //  u64Size
+    (void)kdi_copy_memory(pmtHold,    // *pDestination
+                          pmtArray2,  // *pSource
+                          u64Size);   //  u64Size
     pmtReturned_pointer = kdi_manipulate_memory_move(
         pmtArray1,  // *pDestination
         pmtArray2,  // *pSource
@@ -306,9 +306,9 @@ int main() {
     pmtArray1 = pmtArray + u64Current_length - 1;
     pmtArray2 = pmtArray;
     u64Size = u64Current_length * sizeof(mytype_t);
-    (void)kdi_manipulate_memory_copy(pmtHold,    // *pDestination
-                                     pmtArray2,  // *pSource
-                                     u64Size);   //  u64Size
+    (void)kdi_copy_memory(pmtHold,    // *pDestination
+                          pmtArray2,  // *pSource
+                          u64Size);   //  u64Size
     pmtReturned_pointer = kdi_manipulate_memory_move(
         pmtArray1,  // *pDestination
         pmtArray2,  // *pSource
@@ -327,9 +327,9 @@ int main() {
     pmtArray1 = pmtArray + u64Current_length - 1;
     pmtArray2 = pmtArray;
     u64Size = u64Current_length * sizeof(mytype_t);
-    (void)kdi_manipulate_memory_copy(pmtHold,    // *pDestination
-                                     pmtArray2,  // *pSource
-                                     u64Size);   //  u64Size
+    (void)kdi_copy_memory(pmtHold,    // *pDestination
+                          pmtArray2,  // *pSource
+                          u64Size);   //  u64Size
     pmtReturned_pointer = kdi_manipulate_memory_move(
         pmtArray1,  // *pDestination
         pmtArray2,  // *pSource
@@ -348,9 +348,9 @@ int main() {
     pmtArray1 = pmtArray + u64Current_length - 1;
     pmtArray2 = pmtArray;
     u64Size = u64Current_length * sizeof(mytype_t);
-    (void)kdi_manipulate_memory_copy(pmtHold,    // *pDestination
-                                     pmtArray2,  // *pSource
-                                     u64Size);   //  u64Size
+    (void)kdi_copy_memory(pmtHold,    // *pDestination
+                          pmtArray2,  // *pSource
+                          u64Size);   //  u64Size
     pmtReturned_pointer = kdi_manipulate_memory_move(
         pmtArray1,  // *pDestination
         pmtArray2,  // *pSource
@@ -369,9 +369,9 @@ int main() {
     pmtArray1 = pmtArray + u64Current_length - 1;
     pmtArray2 = pmtArray;
     u64Size = u64Current_length * sizeof(mytype_t);
-    (void)kdi_manipulate_memory_copy(pmtHold,    // *pDestination
-                                     pmtArray2,  // *pSource
-                                     u64Size);   //  u64Size
+    (void)kdi_copy_memory(pmtHold,    // *pDestination
+                          pmtArray2,  // *pSource
+                          u64Size);   //  u64Size
     pmtReturned_pointer = kdi_manipulate_memory_move(
         pmtArray1,  // *pDestination
         pmtArray2,  // *pSource
@@ -390,9 +390,9 @@ int main() {
     pmtArray1 = pmtArray + u64Current_length - 1;
     pmtArray2 = pmtArray;
     u64Size = u64Current_length * sizeof(mytype_t);
-    (void)kdi_manipulate_memory_copy(pmtHold,    // *pDestination
-                                     pmtArray2,  // *pSource
-                                     u64Size);   //  u64Size
+    (void)kdi_copy_memory(pmtHold,    // *pDestination
+                          pmtArray2,  // *pSource
+                          u64Size);   //  u64Size
     pmtReturned_pointer = kdi_manipulate_memory_move(
         pmtArray1,  // *pDestination
         pmtArray2,  // *pSource

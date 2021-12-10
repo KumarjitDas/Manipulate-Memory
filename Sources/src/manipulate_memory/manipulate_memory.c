@@ -38,9 +38,10 @@
 // #undef _KDI_ARCHITECTURE_64_BIT
 
 #ifdef _KDI_ARCHITECTURE_64_BIT
-void *kdi_manipulate_memory_copy(void *pDestination,
-                                 void *pSource,
-                                 uint64_t u64Size) {
+
+void *kdi_copy_memory(void *pDestination,
+                      void *pSource,
+                      uint64_t u64Size) {
     if (u64Size < _KDI_MEMORY_COPY_SIZE_FOR_WHEN_TO_ALIGN) {
         return _kdi_memory_copy_bytes(pDestination,
                                       pSource,
@@ -66,9 +67,9 @@ void *kdi_manipulate_memory_move(void *pDestination,
                                                 pSource,
                                                 u64Size);
     }
-    return kdi_manipulate_memory_copy(pDestination,
-                                      pSource,
-                                      u64Size);
+    return kdi_copy_memory(pDestination,
+                           pSource,
+                           u64Size);
 }
 
 void *kdi_manipulate_memory_set(void *pMemory,
@@ -165,5 +166,6 @@ void *kdi_manipulate_memory_apply_element_index(void *pMemory,
     (void)pfFunction;
     return NULL;
 }
+
 #else  /* _KDI_ARCHITECTURE_64_BIT not defined */
 #endif /* _KDI_ARCHITECTURE_64_BIT */
