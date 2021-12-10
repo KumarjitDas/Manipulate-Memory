@@ -1,11 +1,11 @@
 /**
- * @file kdi_manipulate_memory_copy.c
- * @author Kumarjit Das (kumarjitdas1999@gmail.com)
- * @brief Tests for `kdi_manipulate_memory_copy` function.
- * @version 0.1.0
- * @date 2021-12-07
+ * \file kdi_manipulate_memory_copy.c
+ * \author Kumarjit Das (kumarjitdas1999@gmail.com)
+ * \brief Tests for `kdi_manipulate_memory_copy` function.
+ * \version 0.1.0
+ * \date 2021-12-10
  *
- * @copyright Copyright (c) 2021
+ * \copyright Copyright (c) 2021
  *
  * License(MIT License):
  *
