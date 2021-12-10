@@ -21,9 +21,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   and
   [definition/implementation](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/alignment.c)
 - `_kdi_memory_copy_bytes_reverse` private function
-  [declaration/prototype](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/alignment.h)
+  [declaration/prototype](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/copy.h)
   and
-  [definition/implementation](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/alignment.c)
+  [definition/implementation](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/copy.c)
 - `_kdi_memory_copy_aligned_reverse` private function
   [declaration/prototype](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.2.0/Sources/src/manipulate_memory/copy.h)
   and
