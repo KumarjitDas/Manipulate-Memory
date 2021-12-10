@@ -4,7 +4,7 @@
  * \brief Contains private memory-alignment function declarations of this
  *        library.
  * \version 0.1.0
- * \date 2021-12-07
+ * \date 2021-12-10
  *
  * \copyright Copyright (c) 2021
  *
@@ -37,5 +37,7 @@
 #include "utility.h"
 
 void *_kdi_get_aligned_address(void *pMemory);
+
+void *_kdi_get_aligned_address_reverse(void *pMemory);
 
 #endif /* _KDI_MANIPULATE_MEMORY_ALIGNMENT_H_ */
