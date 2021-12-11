@@ -71,3 +71,11 @@ write_status("CMAKE_EXPORT_COMPILE_COMMANDS is set to: "
 option(BUILD_SHARED_LIBS "Build this project as a shared library." ON)
 write_status("BUILD_SHARED_LIBS is set to: "
              ${BUILD_SHARED_LIBS})
+
+# Setting the current user directory
+if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
+    set(KDI_CURRENT_USER_PATH "C:\\Users\\$ENV{USERNAME}")
+else()
+    set(KDI_CURRENT_USER_PATH "/$ENV{USER}")
+endif ()
+write_status("Current user path: ${KDI_CURRENT_USER_PATH}")
