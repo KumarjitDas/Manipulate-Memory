@@ -59,7 +59,6 @@ function(write_status)
     message(STATUS "[${KDI_PROJECT_NAME}] ${STATUS_VARIABLE}")
 endfunction()
 
-set(KDI_STATUS_VARIABLE "[${KDI_PROJECT_NAME}]")
 write_status("Initiating the project setup.")
 
 # Generate compile commands for IDE's
@@ -74,8 +73,28 @@ write_status("BUILD_SHARED_LIBS is set to: "
 
 # Setting the current user directory
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
-    set(KDI_CURRENT_USER_PATH "C:\\Users\\$ENV{USERNAME}")
+    set(KDI_CURRENT_USER_PATH "C:/Users/$ENV{USERNAME}")
 else()
     set(KDI_CURRENT_USER_PATH "/$ENV{USER}")
 endif ()
 write_status("Current user path: ${KDI_CURRENT_USER_PATH}")
+
+# Getting the build directory name from current binary directory
+string(REPLACE "${CMAKE_SOURCE_DIR}/"
+        "" KDI_BUILD_DIRECTORY
+        ${CMAKE_CURRENT_BINARY_DIR})
+# Setting the build library type name
+if(BUILD_SHARED_LIBS)
+    set(KDI_BUILD_LIBRARY_TYPE "Shared")
+else()
+    set(KDI_BUILD_LIBRARY_TYPE "Static")
+endif()
+# Setting the build directory name
+string(FIND
+    ${KDI_BUILD_DIRECTORY}
+    ${KDI_BUILD_LIBRARY_TYPE}
+    _KDI_BUILD_LIBRARY_TYPE_EXISTS
+)
+if(${_KDI_BUILD_LIBRARY_TYPE_EXISTS} EQUAL -1)
+    set(KDI_BUILD_DIRECTORY "${KDI_BUILD_DIRECTORY}-${KDI_BUILD_LIBRARY_TYPE}")
+endif()
