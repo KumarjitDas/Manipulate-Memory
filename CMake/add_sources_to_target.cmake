@@ -42,8 +42,6 @@ target_sources(${KDI_LIBRARY_NAME} PRIVATE ${INCLUDE_FILE})
 # Adding the source files to the main target
 set(SRC_FILES "${SRC_DIRECTORY}/manipulate_memory/manipulate_memory.c"
               "${SRC_DIRECTORY}/manipulate_memory/utility.h"
-              "${SRC_DIRECTORY}/manipulate_memory/alignment.h"
-              "${SRC_DIRECTORY}/manipulate_memory/alignment.c"
               "${SRC_DIRECTORY}/manipulate_memory/copy.h"
               "${SRC_DIRECTORY}/manipulate_memory/copy.c")
 target_sources(${KDI_LIBRARY_NAME} PRIVATE ${SRC_FILES})

@@ -32,7 +32,6 @@
 
 #include "manipulate_memory/manipulate_memory.h"
 #include "utility.h"
-#include "alignment.h"
 #include "copy.h"
 
 // #undef _KDI_ARCHITECTURE_64_BIT

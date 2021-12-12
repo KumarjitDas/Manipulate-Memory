@@ -31,8 +31,9 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+#include "align_memory/align_memory.h"
+
 #include "utility.h"
-#include "alignment.h"
 #include "copy.h"
 
 // #undef _KDI_ARCHITECTURE_64_BIT
@@ -72,7 +73,9 @@ void *_kdi_copy_words_from_memory(void *pDestination,
                                   uint64_t u64Size) {
     uint8_t *p8Destination = pDestination;
     uint8_t *p8Source = pSource;
-    uint8_t *p8Destination_end = _kdi_get_aligned_memory(pDestination);
+    uint8_t *p8Destination_end = kdi_get_aligned_memory_forward(
+        pDestination,
+        _KDI_MEMORY_WORD_SIZE);
     while (p8Destination < p8Destination_end) {
         *p8Destination = *p8Source;
         ++p8Destination;
@@ -82,8 +85,9 @@ void *_kdi_copy_words_from_memory(void *pDestination,
     uint64_t *p64Source = (void *)p8Source;
     uint64_t *p64Actual_destination_end = (void *)((uint8_t *)pDestination +
                                                    u64Size);
-    uint64_t *p64Destination_end = _kdi_get_aligned_memory_reverse(
-        p64Actual_destination_end);
+    uint64_t *p64Destination_end = kdi_get_aligned_memory_backward(
+        p64Actual_destination_end,
+        _KDI_MEMORY_WORD_SIZE);
     while (p64Destination < p64Destination_end) {
         *p64Destination = *p64Source;
         ++p64Destination;
@@ -105,14 +109,17 @@ void *_kdi_copy_words_from_memory_reverse(void *pDestination,
                                           uint64_t u64Size) {
     uint8_t *p8Destination_end = (uint8_t *)pDestination + u64Size;
     uint8_t *p8Source_end = (uint8_t *)pSource + u64Size;
-    uint8_t *p8Destination_start = _kdi_get_aligned_memory_reverse(
-        p8Destination_end);
+    uint8_t *p8Destination_start = kdi_get_aligned_memory_backward(
+        p8Destination_end,
+        _KDI_MEMORY_WORD_SIZE);
     while (p8Destination_end > p8Destination_start) {
         --p8Destination_end;
         --p8Source_end;
         *p8Destination_end = *p8Source_end;
     }
-    uint64_t *p64Destination_start = _kdi_get_aligned_memory(pDestination);
+    uint64_t *p64Destination_start = kdi_get_aligned_memory_forward(
+        pDestination,
+        _KDI_MEMORY_WORD_SIZE);
     uint64_t *p64Destination_end = (void *)p8Destination_end;
     uint64_t *p64Source_end = (void *)p8Source_end;
     while (p64Destination_end > p64Destination_start) {
