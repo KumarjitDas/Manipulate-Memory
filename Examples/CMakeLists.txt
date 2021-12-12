@@ -31,7 +31,7 @@
 write_status("'Examples' subdirectory added.")
 
 # Set the list of example programs
-set(EXAMPLE_LIST "example-001-copy;")
+set(EXAMPLE_LIST "example-001;")
 
 # Loop through each item in the examples list
 foreach(EXAMPLE_ITEM ${EXAMPLE_LIST})

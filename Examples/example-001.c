@@ -1,10 +1,10 @@
 /**
- * \file example-001-copy.c
+ * \file example-001.c
  * \author Kumarjit Das (kumarjitdas1999@gmail.com)
  * \brief An example for `Manipulate-Memory` library function
  *        `kdi_copy_memory`.
  * \version 0.3.0
- * \date 2021-12-10
+ * \date 2021-12-12
  *
  * \copyright Copyright (c) 2021
  *
@@ -41,12 +41,6 @@
 // #undef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
 
 #ifdef KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT
-void show_usage(void) {
-    printf(
-        "Usage: example-001-copy <al> <cl>\n"
-        "    al - a positive integer representing array length\n"
-        "    cl - a positive integer representing copying length\n");
-}
 
 void print_array(const char *const sMessage,
                  uint32_t *p32Array,
@@ -60,7 +54,10 @@ void print_array(const char *const sMessage,
 
 int main(int argc, char **argv) {
     if (argc < 3) {
-        show_usage();
+        printf(
+            "Usage: example-001-copy <al> <cl>\n"
+            "    al - a positive integer representing array length\n"
+            "    cl - a positive integer representing copying length\n");
         return EXIT_FAILURE;
     }
 
@@ -102,5 +99,6 @@ int main(int argc, char **argv) {
     free(p32Copy);
     return EXIT_SUCCESS;
 }
+
 #else  /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT not defined */
 #endif /* KDI_MANIPULATE_MEMORY_ARCHITECTURE_64_BIT */
