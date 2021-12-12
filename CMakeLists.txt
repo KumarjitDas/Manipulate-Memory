@@ -79,6 +79,9 @@ include("CMake/export_rules.cmake")
 # Adding the package configuration for `find_package` support
 include("CMake/package_configuration.cmake")
 
+# Include all the dependencies of this library
+include("CMake/add_dependencies.cmake")
+
 # Add the source files to the main target
 include("CMake/include_tests.cmake")
 
