@@ -5,10 +5,48 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.3.0...HEAD)
+## [Unreleased](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.4.0...HEAD)
 
 - *CPack* packaging support
 - *vcpkg* packaging support
+
+## [0.4.0](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.3.0...v0.4.0) - 2021-12-12
+
+### Added
+
+- `KDI_CURRENT_USER_PATH`, `KDI_BUILD_DIRECTORY`, and `KDI_BUILD_LIBRARY_TYPE` cmake variables
+- Check for **"Ninja Multi-Config"** when setting `VALID_BUILD_TYPES` cmake variable
+- Build postfixes for different build configurations in cmake files of
+  [Examples](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.4.0/Examples/CMakeLists.txt) and
+  [Tests](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.4.0/Tests/CMakeLists.txt) directories.
+- [add_dependencies.cmake](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.4.0/CMake/add_dependencies.cmake)
+  file
+- **Align-Memory** library as a dependency of this project
+
+### Changed
+
+- Private function names
+  - `_kdi_get_aligned_address` to `_kdi_get_aligned_memory`
+  - `_kdi_get_aligned_address_reverse` to `_kdi_get_aligned_memory_reverse`
+  - `_kdi_memory_copy_bytes` to `_kdi_copy_bytes_from_memory`
+  - `_kdi_memory_copy_bytes_reverse` to `_kdi_copy_bytes_from_memory_reverse`
+  - `_kdi_memory_copy_aligned` to `_kdi_copy_words_from_memory`
+  - `_kdi_memory_copy_aligned_reverse` to `_kdi_copy_words_from_memory_reverse`
+- `STATIC_POSTFIX` to `KDI_STATIC_POSTFIX`
+- [example-001-copy.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.3.0/Examples/example-001-copy.c)
+  file to [example-001.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.4.0/Examples/example-001.c)
+- Using unix style path names in `KDI_CURRENT_USER_PATH`
+
+### Removed
+
+- `KDI_STATUS_VARIABLE` cmake variable
+- [alignment.h](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.3.0/Sources/src/manipulate_memory/alignment.h)
+  and
+  [alignment.c](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.3.0/Sources/src/manipulate_memory/alignment.c)
+  private source files
+- All
+  [alignment.h](https://github.com/KumarjitDas/Manipulate-Memory/blob/v0.3.0/Sources/src/manipulate_memory/alignment.h)
+  functions calls
 
 ## [0.3.0](https://github.com/KumarjitDas/Manipulate-Memory/compare/v0.2.0...v0.3.0) - 2021-12-10
 
